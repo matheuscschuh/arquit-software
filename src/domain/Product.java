@@ -9,20 +9,20 @@ public class Product implements EntityInterface{
     private UUID uuid;
     private String sku;
     private String name;
-    private BigDecimal price;
+    private Float price;
     private Date datePrice;
     private ArrayList<Price> historicalPrice = new ArrayList<>();
 
     public Product() {
     }
 
-    public Product(String name, BigDecimal price, String sku) {
+    public Product(String name, Float price, String sku) {
         this.name = name;
         this.price = price;
         this.sku = sku;
     }
 
-    public Product(BigDecimal price, String sku, UUID uuid, String name) {
+    public Product(Float price, String sku, UUID uuid, String name) {
         this.price = price;
         this.sku = sku;
         this.uuid = uuid;
@@ -53,11 +53,11 @@ public class Product implements EntityInterface{
         this.name = name;
     }
 
-    public BigDecimal getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(Float price) {
         if (this.price != null && this.datePrice != null) {
             Price oldPrice = new Price (this.datePrice, this.price);
             historicalPrice.add(oldPrice);
